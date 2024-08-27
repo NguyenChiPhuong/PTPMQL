@@ -1,14 +1,18 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebMvc.Models
+namespace FirstWeb.Models
 {
     public class Student
     {
         [Key]
-        public int MaSinhVien { get; set; }
-        public int HoTen { get; set; } 
         
+    public string FullName {get; set;}
+
+    public string Address {get; set;}
+
+    public string Email {get; set;}
+
+    public string Phone {get; set;}
     }
 
 }

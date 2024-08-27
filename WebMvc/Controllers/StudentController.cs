@@ -1,6 +1,8 @@
+using System.Collections.Specialized;
 using Microsoft.AspNetCore.Mvc;
-using WebMvc.Models;
-namespace WebMvc.Controllers
+using FirstWeb.Models;
+
+namespace FirstWeb.Controllers
 {
     public class StudentController : Controller
     {
@@ -10,11 +12,12 @@ namespace WebMvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(Student sd)
+        public IActionResult Index(Student std)
         {
-            string strOutput = "Xin chao " + sd.MaSinhVien + "-" + sd.HoTen;
-            ViewBag.Mess = strOutput;
+            string strResult = "Xin chao" + std.FullName + "-" + std.Address + "-" + std.Email + "-" + std.Phone;
+            ViewBag.Thongtin = strResult;
             return View();
+
         }
     }
 }
