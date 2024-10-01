@@ -10,7 +10,7 @@ using WebMvc;
 namespace WebMvc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241001022838_Create_Table_Person")]
+    [Migration("20241001073525_Create_Table_Person")]
     partial class Create_Table_Person
     {
         /// <inheritdoc />
@@ -28,6 +28,11 @@ namespace WebMvc.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("HoTen")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -35,6 +40,10 @@ namespace WebMvc.Migrations
                     b.HasKey("CCCD");
 
                     b.ToTable("Person");
+
+                    b.HasDiscriminator().HasValue("Person");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("WebMvc.Models.Student", b =>
@@ -57,6 +66,21 @@ namespace WebMvc.Migrations
                     b.HasKey("FullName");
 
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("WebMvc.Models.Employee", b =>
+                {
+                    b.HasBaseType("WebMvc.Models.Person");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,4 @@
-@model  WebMvc.Models.Person
+@model WebMvc.Models.Person
 @{
     ViewData["Title"] = "Delete";
 }
@@ -13,25 +13,24 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CCCD)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.CCCD)
-        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.CCCD)
+        </dt>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.HoTen)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.HoTen)
-        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.HoTen)
+        </dt>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DiaChi)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dt>
+        
     </dl>
-
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="CCCD" />
+    <form method="post">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

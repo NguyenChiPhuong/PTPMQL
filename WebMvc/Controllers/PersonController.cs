@@ -48,6 +48,7 @@ namespace WebMvc.Controllers
             }
             return View(person);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("CCCD,HoTen,DiaChi")] Person person)
@@ -79,31 +80,7 @@ namespace WebMvc.Controllers
             }
             return View(person);
         }
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.CCCD == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var person = await _context.Person.FindAsync(id);
-            _context.Person.Remove(person);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
         private bool PersonExists(string id)
         {
             return _context.Person.Any(e => e.CCCD == id);
