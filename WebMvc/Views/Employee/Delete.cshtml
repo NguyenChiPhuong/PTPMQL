@@ -1,0 +1,46 @@
+@model WebMvc.Models.Employee
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.SDT)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.HoTen)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dt><dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dt>
+        
+    </dl>
+    <form method="post">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

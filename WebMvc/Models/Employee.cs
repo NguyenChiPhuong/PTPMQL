@@ -1,9 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 namespace WebMvc.Models
 {
     public class Employee : Person
     {
-        public string Department { get; set; }
+        public string SDT { get; set; }
 
-        public string Position { get; set; }
+        public string Email { get; set; }
     }
 }
