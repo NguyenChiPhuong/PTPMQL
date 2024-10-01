@@ -20,9 +20,6 @@ namespace WebMvc
 
         public DbSet<WebMvc.Models.Employee> Employee { get; set; } = default!;
 
-        internal void Add(object employee)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }
