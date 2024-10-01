@@ -15,5 +15,7 @@ namespace WebMvc
         }
 
         public DbSet<WebMvc.Models.Student> Student { get; set; } = default!;
+
+        public DbSet<WebMvc.Models.Person> Person { get; set; } = default!;
     }
 }
